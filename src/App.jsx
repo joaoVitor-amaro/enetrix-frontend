@@ -1,10 +1,15 @@
 import './App.css'
-import ChatScreen from './pages/ChatScreen'
+import { Routes, Route } from 'react-router-dom'
+import ChatScreen from './pages/chatBox/ChatScreen'
+import EnetrixScreen from './pages/tela-inicial/EnetrixScreen'
 
 function App() {
 
-  return (  
-    <ChatScreen />
+  return (
+    <Routes>
+      <Route path="/" element={<EnetrixScreen />} />
+      <Route path="/chat" element={<ChatScreen />} />
+    </Routes>
   )
 }
 
