@@ -1,13 +1,10 @@
-import { useState } from 'react'
-
 import './App.css'
+import EnetrixScreen from './EnetrixScreen'
 
 function App() {
 
-  return (
-    <>
-      
-    </>
+  return (  
+    <EnetrixScreen /> 
   )
 }
 
