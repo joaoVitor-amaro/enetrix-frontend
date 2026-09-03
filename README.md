@@ -50,3 +50,4 @@ node server/server.js
   - Ajustar o caminho de leitura/escrita do `db.json` no `server.js`.
   - Implementar API JSON-SERVER
   - Implementar a funcionalidade de persistência do histórico ao recarregar a tela.
+  - Na criação das telas no react
