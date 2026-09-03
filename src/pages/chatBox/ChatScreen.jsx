@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import ChatHeader from "../components/chat/ChatHeader";
-import ChatTitle from "../components/chat/ChatTitle";
-import ConversationArea from "../components/chat/ConversationArea";
-import SessionHistory from "../components/chat/SessionHistory";
-import MessageInput from "../components/chat/MessageInput";
+import { useNavigate } from "react-router-dom";
+import ChatHeader from "../../components/chat/ChatHeader";
+import ChatTitle from "../../components/chat/ChatTitle";
+import ConversationArea from "../../components/chat/ConversationArea";
+import SessionHistory from "../../components/chat/SessionHistory";
+import MessageInput from "../../components/chat/MessageInput";
 
 const initialMessages = [];
 const SESSION_ID = "sessao-atual";
@@ -15,12 +16,14 @@ function formatTime(isoString) {
   });
 }
 
-export default function ChatScreen({ onBack }) {
+export default function ChatScreen() {
+  const navigate = useNavigate();
   const [messages, setMessages] = useState(initialMessages);
   const [inputValue, setInputValue] = useState("");
   const [status, setStatus] = useState("idle");
   const [isLoadingHistory, setIsLoadingHistory] = useState(true);
 
+  
   useEffect(() => {
     let isActive = true;
 
@@ -36,6 +39,7 @@ export default function ChatScreen({ onBack }) {
 
         const records = await response.json();
 
+       
         const restoredMessages = records.flatMap((record, index) => [
           {
             id: `${record.timestamp}-user-${index}`,
@@ -131,7 +135,7 @@ export default function ChatScreen({ onBack }) {
 
   return (
     <div className="h-screen w-full flex flex-col bg-white font-sans overflow-hidden">
-      <ChatHeader onBack={onBack} />
+      <ChatHeader onBack={() => navigate("/")} />
       <ChatTitle />
 
       <div className="flex-1 flex flex-col lg:flex-row min-h-0">
