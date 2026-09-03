@@ -1,10 +1,10 @@
 import './App.css'
-import EnetrixScreen from './EnetrixScreen'
+import ChatScreen from './pages/ChatScreen'
 
 function App() {
 
   return (  
-    <EnetrixScreen /> 
+    <ChatScreen />
   )
 }
 
